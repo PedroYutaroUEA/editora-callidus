@@ -16,9 +16,9 @@ export function TableHeader({ orderUp, orderDown }: Props) {
       </tr>
       <tr className='flex justify-around w-full'>
         <th className='border-b-[1px] w-full'>ISBN</th>
-        <th className='flex items-center justify-evenly border-b-[1px] border-x-[1px] w-full'>
-          <p>Título</p>
-          <div className="flex items-center justify-between">
+        <th className='flex items-center justify-between border-b-[1px] border-x-[1px] w-full'>
+          <p className="mx-3">Título</p>
+          <div className="flex items-center gap-1 mx-3">
             <ArrowUp
               className='hover:bg-slate-600 cursor-pointer transition-all p-1 rounded-full'
               size={22}
