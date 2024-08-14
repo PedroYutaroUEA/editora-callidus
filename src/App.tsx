@@ -3,12 +3,32 @@ import { TableFooter } from "./components/TableFooter";
 import { TableHeader } from "./components/TableHeader";
 
 import { Component } from 'react'
-import booksJSON from './db/books.json'
+import booksJSON from './api/books.json'
 import { Book } from "./types/book";
 
 class App extends Component {
   state = {
-    books: JSON.parse(JSON.stringify(booksJSON)) as Book[]
+    books: [] as Book[]
+  }
+
+  componentDidMount(): void {
+    const books = JSON.parse(JSON.stringify(booksJSON)) as Book[]
+    this.setState({ books });
+  }
+
+  handleRemoveBook = (id: string): void => {
+    const books = this.state.books.filter((book: Book) => book.id !== id);
+    this.setState({ books });
+  }
+
+  handleOrderUp = (): void => {
+    const books = this.state.books.sort((a, b) => a.title.localeCompare(b.title))
+    this.setState({ books })
+  }
+
+  handleOrderDown = (): void => {
+    const books = this.state.books.sort((a, b) => b.title.localeCompare(a.title))
+    this.setState({ books })
   }
 
   render() {
@@ -21,9 +41,13 @@ class App extends Component {
           </p>
         </header>
         <table className="border-2 items-center bg-slate-700 p-2 grid-cols-3 w-1/2">
-          <TableHeader />
+          <TableHeader
+            orderUp={this.handleOrderUp}
+            orderDown={this.handleOrderDown}
+          />
           <TableBody
             books={this.state.books}
+            onDeleteBook={this.handleRemoveBook}
           />
           <TableFooter len={this.state.books.length} />
         </table>
