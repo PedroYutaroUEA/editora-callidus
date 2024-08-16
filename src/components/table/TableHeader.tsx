@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from 'react'
 
 import { ArrowDown, ArrowUp } from 'styled-icons/bootstrap'
-import { Book } from '../types/book'
+import { Book } from '../../@types/book'
 
 interface Props {
   orderUp(): void
@@ -16,9 +16,9 @@ export function TableHeader({ orderUp, orderDown }: Props) {
       </tr>
       <tr className='flex justify-around w-full'>
         <th className='border-b-[1px] w-full'>ISBN</th>
-        <th className='flex items-center justify-between border-b-[1px] border-x-[1px] w-full'>
+        <th className='relative flex items-center justify-center border-b-[1px] border-x-[1px] w-full'>
           <p className="mx-3">Título</p>
-          <div className="flex items-center gap-1 mx-3">
+          <div className="absolute right-0 flex items-center gap-1 mx-3">
             <ArrowUp
               className='hover:bg-slate-600 cursor-pointer transition-all p-1 rounded-full'
               size={22}
