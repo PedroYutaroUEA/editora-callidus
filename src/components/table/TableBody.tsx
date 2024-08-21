@@ -11,10 +11,7 @@ export function TableBody({ books, onDeleteBook }: Props) {
     <tbody className='flex flex-col w-full items-center'>
       {
         books.map(({author, id, title}, i) => (
-          <tr key={i} className={
-            i % 2 === 0
-            ? 'flex w-full justify-around py-2 border-b-[1px] bg-slate-800 font-semibold items-center'
-            : 'flex w-full justify-around py-2 border-b-[1px] bg-slate-700 font-semibold items-center'
+          <tr key={i} className={`flex w-full justify-around py-2 border-b-[1px] ${i % 2 === 0 ? "bg-slate-800" : "bg-slate-700"} font-semibold items-center`
           }>
             <td className='w-full justify-center items-center  p-2'>{id}</td>
             <td className='w-full justify-center items-center p-2'>{title}</td>
