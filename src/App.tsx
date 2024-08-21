@@ -45,7 +45,12 @@ export function App() {
             <Route path="/front-end" element={<BooksPage books={books} categoy="frontend" />} />
             <Route path="/programming" element={<BooksPage books={books} categoy="programming" />} />
             <Route path="/design" element={<BooksPage books={books} categoy="design" />} />
-            <Route path="/catalog" element={<CatalogPage books={books} />} />
+            <Route path="/catalog" element={
+              <CatalogPage
+                books={books}
+                categories={["design", "frontend", "programming"]}
+              />}
+            />
           </Routes>
         </main>
         <Footer />

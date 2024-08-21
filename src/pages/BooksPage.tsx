@@ -10,7 +10,7 @@ const IMG_PATH = "/assets/images/";
 
 export function BooksPage({ books, categoy }: Props) {
   return (
-    <table className="border-[1px] items-center bg-slate-700 w-1/2 flex flex-col ">
+    <table className="border-[1px] items-center bg-slate-700 w-1/2 flex flex-col">
       <thead className='flex justify-center bg-slate-800 w-full p-2 text-xl border-b-[1px]'>
         <tr>
           <th>
